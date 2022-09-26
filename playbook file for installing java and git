@@ -1,0 +1,23 @@
+---
+- hosts: all
+  tasks:
+    - name: Install git
+      yum:
+       name: git
+       state: present
+       update_cache: yes
+[1:17 AM] [root@ip-172-31-32-27 infra]# cat java.yml
+---
+- name: Install jdk
+  hosts: all
+  tasks:
+  - name:
+    yum:
+      name: java
+      state: latest
+
+
+
+
+
+
