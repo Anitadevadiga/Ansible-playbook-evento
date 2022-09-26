@@ -1,6 +1,6 @@
 ---
 - name: "AWS - Install docker"
-  hosts: stagging
+  hosts: aws-docker-vms
   become: yes
   tasks:
     - name: Update all packages
@@ -39,5 +39,6 @@
         name: "{{ packages }}"
       vars:
         packages:
-          - boto
-          - boto3
+        - boto
+        - boto3
+        - docker-compose
