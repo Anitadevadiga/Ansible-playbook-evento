@@ -16,7 +16,6 @@
         update_cache: yes
       vars:
         packages:
-        - python-pip
         - yum-utils
         - device-mapper-persistent-data
         - lvm2
@@ -26,19 +25,10 @@
       shell: yum-config-manager --enable extras
 
     - name: Install docker-ce (centos) via amazon-linux-extras packages
-      shell: "amazon-linux-extras install docker -y"
+      shell: "amazon-linux-extras install docker=20.10.7 -y"
 
     - name: Enable Docker CE service at startup
       service:
         name: docker
         state: started
         enabled: yes
-
-    - name: Ensure Python pip packages are installed
-      pip:
-        name: "{{ packages }}"
-      vars:
-        packages:
-        - boto
-        - boto3
-        
